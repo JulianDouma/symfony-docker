@@ -39,7 +39,7 @@ FROM base AS builder
 COPY --link pnpm-lock.yaml ./
 RUN pnpm fetch --prod
 
-COPY --link ../next .
+COPY --link .. .
 
 RUN	pnpm install --frozen-lockfile --offline --prod && \
 	pnpm run build

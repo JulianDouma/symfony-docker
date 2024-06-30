@@ -11,5 +11,5 @@ services:
 
   next:
     build:
-      context: ./next/docker
+      context: next/docker
       target: prod
