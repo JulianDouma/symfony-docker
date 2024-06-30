@@ -22,8 +22,8 @@
 **/Dockerfile
 **/Thumbs.db
 .github/
-docs/
-public/bundles/
+api/docs/
+api/public/bundles/
 tests/
 var/
 vendor/
