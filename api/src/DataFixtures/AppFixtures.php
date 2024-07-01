@@ -4,9 +4,11 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Override;
 
 class AppFixtures extends Fixture
 {
+    #[Override]
     public function load(ObjectManager $manager): void
     {
         // $product = new Product();

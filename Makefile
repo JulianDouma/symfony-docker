@@ -13,7 +13,7 @@ SYMFONY  = $(PHP) bin/console
 
 # Misc
 .DEFAULT_GOAL = help
-.PHONY        : help build up start down logs sh sh-next bash bash-next composer vendor sf cc test pnpm
+.PHONY        : help build up start down logs sh sh-next bash bash-next composer vendor sf cc test pnpm dry cs
 
 ## —— 🎵 🐳 The Symfony Docker Makefile 🐳 🎵 ——————————————————————————————————
 help: ## Outputs this help screen
@@ -71,3 +71,12 @@ cc: sf
 npm: ## Run pnpm, pass the parameter "c=" to run a given command, example: make pnpm c='install'
 	@$(eval c ?=)
 	@$(NEXT) $(c)
+
+## —— Custom Commands 🎵 ———————————————————————————————————————————————————————————
+dry: ## Run rector dry-run and phpstan
+	@$(COMPOSER) rector-dry
+	@$(COMPOSER) phpstan
+
+cs: ## Run rector and ecs fix-cs
+	@$(COMPOSER) rector
+	@$(COMPOSER) fix-cs
